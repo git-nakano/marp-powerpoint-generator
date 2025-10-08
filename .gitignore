@@ -1,0 +1,6 @@
+# .gitignore
+output/*.pptx
+output/*.pdf
+node_modules/
+.DS_Store
+Thumbs.db
