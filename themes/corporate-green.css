@@ -1,5 +1,3 @@
-/* @theme corporate-green */
-
 @import 'default';
 
 :root {
@@ -65,11 +63,13 @@ strong {
   font-weight: bold;
 }
 
+/* テーブル（修正箇所：折り返し対応） */
 table {
   border-collapse: collapse;
   width: 100%;
   margin: 20px 0;
   font-size: 22px;
+  table-layout: fixed; /* 列幅を均等化 */
 }
 
 thead {
@@ -81,6 +81,10 @@ th, td {
   border: 1px solid #d1d5db;
   padding: 12px;
   text-align: left;
+  word-wrap: break-word;      /* 長単語を折り返し */
+  overflow-wrap: break-word;  /* 最新ブラウザ対応 */
+  white-space: normal;        /* 自動改行を許可 */
+  vertical-align: top;        /* 上揃え */
 }
 
 tbody tr:nth-child(even) {

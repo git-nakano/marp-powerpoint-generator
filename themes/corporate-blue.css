@@ -1,23 +1,17 @@
-/* @theme corporate-blue */
-
-@import "default";
+@import 'default';
 
 :root {
-  --color-primary: #1e3a8a; /* 深い青 */
-  --color-secondary: #3b82f6; /* 明るい青 */
-  --color-accent: #60a5fa; /* アクセント青 */
-  --color-text: #1f2937; /* テキスト色 */
-  --color-background: #ffffff; /* 背景白 */
+  --color-primary: #1e3a8a;      /* 深い青 */
+  --color-secondary: #3b82f6;    /* 明るい青 */
+  --color-accent: #60a5fa;       /* アクセント青 */
+  --color-text: #1f2937;         /* テキスト色 */
+  --color-background: #ffffff;    /* 背景白 */
   --color-background-alt: #f3f4f6; /* 代替背景 */
 }
 
 section {
-  background: linear-gradient(
-    135deg,
-    var(--color-background) 0%,
-    var(--color-background-alt) 100%
-  );
-  font-family: "Segoe UI", "Yu Gothic", "Meiryo", sans-serif;
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-alt) 100%);
+  font-family: 'Segoe UI', 'Yu Gothic', 'Meiryo', sans-serif;
   color: var(--color-text);
   font-size: 28px;
   padding: 60px;
@@ -25,11 +19,7 @@ section {
 
 /* タイトルスライド */
 section.lead {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    var(--color-secondary) 100%
-  );
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   color: white;
   text-align: center;
   justify-content: center;
@@ -62,8 +52,7 @@ h3 {
 }
 
 /* リスト */
-ul,
-ol {
+ul, ol {
   font-size: 24px;
   line-height: 1.8;
 }
@@ -78,12 +67,13 @@ strong {
   font-weight: bold;
 }
 
-/* テーブル */
+/* テーブル（修正箇所：折り返し対応） */
 table {
   border-collapse: collapse;
   width: 100%;
   margin: 20px 0;
   font-size: 22px;
+  table-layout: fixed; /* 列幅を均等化 */
 }
 
 thead {
@@ -91,11 +81,14 @@ thead {
   color: white;
 }
 
-th,
-td {
+th, td {
   border: 1px solid #d1d5db;
   padding: 12px;
   text-align: left;
+  word-wrap: break-word;      /* 長単語を折り返し */
+  overflow-wrap: break-word;  /* 最新ブラウザ対応 */
+  white-space: normal;        /* 自動改行を許可 */
+  vertical-align: top;        /* 上揃え */
 }
 
 tbody tr:nth-child(even) {
@@ -117,7 +110,7 @@ code {
   color: var(--color-primary);
   padding: 2px 8px;
   border-radius: 4px;
-  font-family: "Consolas", "Monaco", monospace;
+  font-family: 'Consolas', 'Monaco', monospace;
   font-size: 90%;
 }
 
@@ -132,7 +125,7 @@ pre {
 
 /* ページ番号 */
 section::after {
-  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
   position: absolute;
   bottom: 20px;
   right: 30px;
