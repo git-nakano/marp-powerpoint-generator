@@ -1,0 +1,7 @@
+{
+  "markdown.marp.themes": [
+    "./themes/corporate-blue.css",
+    "./themes/corporate-green.css",
+    "./themes/modern-minimal.css"
+  ]
+}
