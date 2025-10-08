@@ -1,0 +1,123 @@
+/* @theme corporate-green */
+
+@import 'default';
+
+:root {
+  --color-primary: #065f46;      /* 深い緑 */
+  --color-secondary: #10b981;    /* 明るい緑 */
+  --color-accent: #34d399;       /* アクセント緑 */
+  --color-text: #1f2937;
+  --color-background: #ffffff;
+  --color-background-alt: #f0fdf4;
+}
+
+section {
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-alt) 100%);
+  font-family: 'Segoe UI', 'Yu Gothic', 'Meiryo', sans-serif;
+  color: var(--color-text);
+  font-size: 28px;
+  padding: 60px;
+}
+
+section.lead {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+  color: var(--color-primary);
+  font-size: 48px;
+  font-weight: bold;
+  border-bottom: 4px solid var(--color-secondary);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: var(--color-secondary);
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: var(--color-accent);
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+ul, ol {
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+strong {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 22px;
+}
+
+thead {
+  background: var(--color-primary);
+  color: white;
+}
+
+th, td {
+  border: 1px solid #d1d5db;
+  padding: 12px;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-background-alt);
+}
+
+blockquote {
+  border-left: 5px solid var(--color-secondary);
+  background: var(--color-background-alt);
+  padding: 15px 20px;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+code {
+  background: var(--color-background-alt);
+  color: var(--color-primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 90%;
+}
+
+pre {
+  background: #1f2937;
+  color: #f3f4f6;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 18px;
+}
+
+section::after {
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 18px;
+  color: var(--color-secondary);
+}
