@@ -1,3 +1,5 @@
+/* @theme corporate-green */
+
 @import 'default';
 
 :root {
@@ -18,8 +20,8 @@ section {
 }
 
 section.lead {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-  color: white;
+  background: white;
+  color: var(--color-primary);
   text-align: center;
   justify-content: center;
 }
