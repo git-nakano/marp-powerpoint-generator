@@ -19,8 +19,13 @@ section {
   );
   font-family: "Segoe UI", "Yu Gothic", "Meiryo", sans-serif;
   color: var(--color-text);
-  font-size: 28px;
-  padding: 60px;
+  /* 修正：フォントサイズ縮小 28px→24px */
+  font-size: 24px;
+  /* 修正：Flexboxで上部配置、パディング調整 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 35px 50px 50px 50px;
 }
 
 /* タイトルスライド */
@@ -34,38 +39,51 @@ section.lead {
 /* 見出し */
 h1 {
   color: var(--color-primary);
-  font-size: 48px;
+  /* 修正：フォントサイズ縮小 48px→42px */
+  font-size: 42px;
   font-weight: bold;
   border-bottom: 4px solid var(--color-secondary);
-  padding-bottom: 10px;
-  margin-bottom: 30px;
+  padding-bottom: 8px;
+  /* 修正：上部マージン削減 */
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 h2 {
   color: var(--color-secondary);
-  font-size: 36px;
+  /* 修正：フォントサイズ縮小 36px→32px */
+  font-size: 32px;
   font-weight: bold;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  /* 修正：マージン最適化 */
+  margin-top: 0;
+  margin-bottom: 12px;
 }
 
 h3 {
   color: var(--color-accent);
-  font-size: 28px;
+  /* 修正：フォントサイズ縮小 28px→26px */
+  font-size: 26px;
   font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  /* 修正：マージン最適化 */
+  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 /* リスト */
 ul,
 ol {
-  font-size: 24px;
-  line-height: 1.8;
+  /* 修正：フォントサイズ縮小 24px→22px */
+  font-size: 22px;
+  /* 修正：行間縮小 1.8→1.6 */
+  line-height: 1.6;
+  /* 修正：マージン最適化 */
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 li {
-  margin-bottom: 10px;
+  /* 修正：アイテム間隔縮小 */
+  margin-bottom: 3px;
 }
 
 /* 強調 */
@@ -78,8 +96,10 @@ strong {
 table {
   border-collapse: collapse;
   width: 100%;
-  margin: 20px 0;
-  font-size: 22px;
+  /* 修正：マージン最適化 */
+  margin: 12px 0;
+  /* 修正：フォントサイズ縮小 22px→20px */
+  font-size: 20px;
   table-layout: fixed; /* 列幅を均等化 */
 }
 
@@ -91,7 +111,8 @@ thead {
 /* 修正：th要素に明示的に色を指定 */
 th {
   border: 1px solid #d1d5db;
-  padding: 12px;
+  /* 修正：パディング縮小 12px→10px */
+  padding: 10px;
   text-align: left;
   background: var(--color-primary) !important;
   color: white !important;
@@ -104,7 +125,8 @@ th {
 
 td {
   border: 1px solid #d1d5db;
-  padding: 12px;
+  /* 修正：パディング縮小 12px→10px */
+  padding: 10px;
   text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -120,8 +142,9 @@ tbody tr:nth-child(even) {
 blockquote {
   border-left: 5px solid var(--color-secondary);
   background: var(--color-background-alt);
-  padding: 15px 20px;
-  margin: 20px 0;
+  padding: 12px 18px;
+  /* 修正：マージン最適化 */
+  margin: 12px 0;
   font-style: italic;
 }
 
@@ -138,10 +161,14 @@ code {
 pre {
   background: #1f2937;
   color: #f3f4f6;
-  padding: 20px;
+  /* 修正：パディング縮小 20px→15px */
+  padding: 15px;
   border-radius: 8px;
   overflow-x: auto;
-  font-size: 18px;
+  /* 修正：フォントサイズ縮小 18px→16px */
+  font-size: 16px;
+  /* 修正：マージン最適化 */
+  margin: 12px 0;
 }
 
 /* ページ番号 */
