@@ -3,135 +3,141 @@
 @import "default";
 
 :root {
-  --color-primary: #1e3a8a; /* 深い青 */
-  --color-secondary: #3b82f6; /* 明るい青 */
-  --color-accent: #60a5fa; /* アクセント青 */
-  --color-success: #10b981; /* 成功（緑） */
-  --color-warning: #f59e0b; /* 警告（オレンジ） */
-  --color-danger: #ef4444; /* 危険（赤） */
-  --color-text: #1f2937; /* テキスト色 */
-  --color-text-light: #6b7280; /* 薄いテキスト */
-  --color-background: #ffffff; /* 背景白 */
-  --color-background-alt: #f9fafb; /* 代替背景（より明るく） */
-  --color-code-bg: #2d3748; /* コード背景（明るく変更） */
-  --color-code-text: #e2e8f0; /* コードテキスト（明るい白） */
-  --color-border: #e5e7eb; /* ボーダー */
+  /* Brand palette (kept from original, slightly softened where needed) */
+  --color-primary: #1e3a8a;
+  --color-secondary: #3b82f6;
+  --color-accent: #60a5fa;
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger:   #ef4444;
+
+  --color-text: #111827;           /* Darker for contrast on white */
+  --color-text-light: #6b7280;
+  --color-background: #ffffff;     /* Solid white background */
+  --color-background-alt: #fafafa; /* Very light grey for subtle surfaces */
+  --color-code-bg: #f5f7fa;        /* Light code background */
+  --color-code-text: #111827;
+  --color-border: #e5e7eb;
 }
 
 /* ========================================
-   基本セクション設定
+   Base section layout
    ======================================== */
 section {
-  background: linear-gradient(
-    135deg,
-    var(--color-background) 0%,
-    var(--color-background-alt) 100%
-  );
-  font-family: "Segoe UI", "Yu Gothic", "Meiryo", sans-serif;
+  background: var(--color-background); /* Solid white (no gradient) */
+  font-family: "Segoe UI", "Yu Gothic", "Meiryo", system-ui, -apple-system, sans-serif;
   color: var(--color-text);
-  font-size: 22px; /* 可読性重視：24px→22px */
-  line-height: 1.7; /* 行間を広げて可読性向上 */
+  font-size: 22px;
+  line-height: 1.65;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 40px 60px 50px 60px; /* 左右の余白を増やす */
+  padding: 44px 60px 56px 60px;
 }
 
-/* タイトルスライド */
+/* Title slide (white variant) */
 section.lead {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  color: white;
+  background: var(--color-background);
+  color: var(--color-text);
   text-align: center;
   justify-content: center;
+  border-top: 8px solid var(--color-primary);
+  border-bottom: 4px solid var(--color-secondary);
 }
 
 section.lead h1 {
-  color: white;
+  color: var(--color-primary);
   border-bottom: none;
-  font-size: 52px;
-  margin-bottom: 20px;
+  font-size: 54px;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.3px;
 }
 
 section.lead h2 {
-  color: #dbeafe;
+  color: var(--color-secondary);
+  font-size: 26px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* Chapter divider (accented but still on white) */
+section.chapter {
+  background: var(--color-background);
+  color: var(--color-text);
+  text-align: center;
+  justify-content: center;
+  border-left: 10px solid var(--color-secondary);
+}
+
+section.chapter h1 {
+  color: var(--color-primary);
+  border-bottom: none;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+section.chapter h2 {
+  color: var(--color-secondary);
   font-size: 28px;
-  font-weight: normal;
-  margin-top: 20px;
+  font-weight: 500;
+  margin-top: 16px;
 }
 
 /* ========================================
-   見出しスタイル
+   Headings
    ======================================== */
 h1 {
   color: var(--color-primary);
-  font-size: 40px; /* 42px→40px */
-  font-weight: bold;
-  border-bottom: 4px solid var(--color-secondary);
-  padding-bottom: 10px;
-  margin-top: 0;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px; /* 文字間隔を広げて可読性向上 */
+  font-size: 40px;
+  font-weight: 800;
+  border-bottom: 3px solid var(--color-secondary);
+  padding-bottom: 8px;
+  margin: 0 0 18px 0;
 }
 
 h2 {
   color: var(--color-secondary);
-  font-size: 30px; /* 32px→30px */
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  letter-spacing: 0.3px;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 8px 0 12px 0;
 }
 
 h3 {
-  color: var(--color-accent);
-  font-size: 24px; /* 26px→24px */
-  font-weight: bold;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  letter-spacing: 0.2px;
+  color: #2563eb; /* Slightly deeper accent for hierarchy */
+  font-size: 24px;
+  font-weight: 700;
+  margin: 12px 0 8px 0;
 }
 
 h4 {
   color: var(--color-text);
   font-size: 20px;
-  font-weight: bold;
-  margin-top: 12px;
-  margin-bottom: 8px;
+  font-weight: 700;
+  margin: 10px 0 6px 0;
 }
 
 /* ========================================
-   リストスタイル（可読性重視）
+   Lists
    ======================================== */
-ul,
-ol {
-  font-size: 20px; /* 22px→20px */
-  line-height: 1.8; /* 1.6→1.8で行間を広く */
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 30px; /* インデントを増やす */
+ul, ol {
+  font-size: 20px;
+  line-height: 1.8;
+  margin: 8px 0;
+  padding-left: 28px;
 }
 
-li {
-  margin-bottom: 6px; /* 3px→6pxでアイテム間隔を広く */
-}
+li { margin-bottom: 6px; }
 
-/* ネストされたリスト */
-ul ul,
-ol ul,
-ul ol,
-ol ol {
-  margin-top: 6px;
-  margin-bottom: 6px;
+ul ul, ol ul, ul ol, ol ol {
+  margin: 6px 0;
   font-size: 18px;
 }
 
-/* ========================================
-   チェックリストスタイル（重要！）
-   ======================================== */
-/* Marpは [ ] を自動でチェックボックスに変換 */
+/* Checklists (Marp converts [ ] / [x] automatically) */
 li:has(input[type="checkbox"]) {
   list-style: none;
-  margin-left: -25px;
+  margin-left: -24px;
 }
 
 input[type="checkbox"] {
@@ -139,275 +145,151 @@ input[type="checkbox"] {
   height: 18px;
   margin-right: 8px;
   cursor: pointer;
-  accent-color: var(--color-success); /* チェック時の色 */
+  accent-color: var(--color-success);
 }
 
-/* チェック済みアイテムを薄くする */
 li:has(input[type="checkbox"]:checked) {
   color: var(--color-text-light);
   text-decoration: line-through;
 }
 
 /* ========================================
-   強調・装飾
+   Emphasis
    ======================================== */
-strong {
-  color: var(--color-primary);
-  font-weight: bold;
-}
+strong { color: var(--color-primary); font-weight: 700; }
+em     { color: var(--color-secondary); font-style: italic; }
 
-em {
-  color: var(--color-secondary);
-  font-style: italic;
-}
-
-/* 絵文字のサイズ調整 */
+/* Emoji sizing for inline icons */
 section :is(h1, h2, h3, p, li) > :is(img[alt*="✅"], img[alt*="📋"], img[alt*="🚀"]) {
-  width: 1.2em;
-  height: 1.2em;
-  vertical-align: middle;
-  display: inline-block;
-  margin: 0 2px;
+  width: 1.1em; height: 1.1em; vertical-align: -2px; margin: 0 2px;
 }
 
 /* ========================================
-   テーブルスタイル（大幅改善）
+   Tables
    ======================================== */
 table {
   border-collapse: collapse;
   width: 100%;
-  margin: 15px 0;
-  font-size: 18px; /* 20px→18px */
-  table-layout: auto; /* 内容に応じて幅を調整 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 影を追加 */
-  border-radius: 6px;
+  margin: 14px 0;
+  font-size: 18px;
+  table-layout: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
   overflow: hidden;
 }
 
 thead {
-  background: var(--color-primary);
-  color: white;
+  background: #f1f5f9; /* mute header on white */
+  color: var(--color-text);
 }
 
-th {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 12px 15px; /* パディングを増やす */
-  text-align: left;
-  background: var(--color-primary) !important;
-  color: white !important;
-  font-weight: bold;
-  font-size: 18px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  vertical-align: middle;
-}
-
-td {
+th, td {
   border: 1px solid var(--color-border);
-  padding: 10px 15px; /* パディングを増やす */
+  padding: 10px 14px;
   text-align: left;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
   vertical-align: top;
   line-height: 1.6;
+  word-break: break-word;
 }
 
-tbody tr {
-  transition: background-color 0.2s ease; /* ホバーアニメーション */
-}
+tbody tr:nth-child(even) { background: var(--color-background-alt); }
+tbody tr:hover { background: #eef2ff; /* subtle hover */ }
 
-tbody tr:nth-child(even) {
-  background: var(--color-background-alt);
-}
-
-tbody tr:hover {
-  background: #dbeafe; /* ホバー時の色 */
-}
-
-/* テーブル内のコード */
-table code {
-  font-size: 14px;
-  padding: 1px 4px;
-}
+/* Inline code within tables stays small */
+table code { font-size: 14px; padding: 1px 4px; }
 
 /* ========================================
-   コードブロック（シンタックスハイライト強化）
+   Code
    ======================================== */
 code {
-  background: #f3f4f6; /* より明るい背景 */
-  color: #dc2626; /* 赤系で視認性向上 */
+  background: var(--color-code-bg);
+  color: var(--color-code-text);
   padding: 3px 8px;
   border-radius: 4px;
-  font-family: "Consolas", "Monaco", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
   font-size: 85%;
-  border: 1px solid #e5e7eb; /* 境界線追加 */
-  font-weight: 500;
+  border: 1px solid var(--color-border);
+  font-weight: 600;
 }
 
 pre {
-  background: var(--color-code-bg); /* 変数を使用 */
-  color: var(--color-code-text); /* 変数を使用 */
-  padding: 18px 20px;
+  background: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 16px 18px;
   border-radius: 8px;
   overflow-x: auto;
   font-size: 16px;
   line-height: 1.6;
-  margin: 15px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 14px 0;
   border-left: 4px solid var(--color-secondary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 pre code {
   background: transparent;
-  color: #e2e8f0 !important; /* 強制的に明るい色を適用 */
+  color: var(--color-code-text);
   padding: 0;
   border: none;
   font-size: 16px;
-  font-weight: normal;
-}
-
-/* コードブロック内の全テキストを明るく */
-pre * {
-  color: #e2e8f0 !important;
-}
-
-/* ASCIIアート・ボックス図の視認性向上 */
-pre code[class*="language-"],
-pre code[class=""],
-pre code:not([class]) {
-  color: #e2e8f0 !important;
-  font-weight: 500; /* 少し太く */
-  letter-spacing: 0.5px; /* 文字間隔を広げる */
-}
-
-/* コメント */
-pre code .comment {
-  color: #a0aec0 !important; /* より明るいグレー */
-  font-style: italic;
-}
-
-/* キーワード */
-pre code .keyword {
-  color: #c4b5fd !important; /* より明るい紫 */
-  font-weight: bold;
-}
-
-/* 文字列 */
-pre code .string {
-  color: #6ee7b7 !important; /* より明るい緑 */
-}
-
-/* 関数 */
-pre code .function {
-  color: #93c5fd !important; /* より明るい青 */
-}
-
-/* Marpのコードブロック用強制スタイル */
-section pre,
-section pre code,
-section pre span,
-section code[class*="language-"] {
-  color: #e2e8f0 !important;
-}
-
-/* 特にASCIIアート用の視認性向上 */
-section pre {
-  font-family: "Consolas", "Monaco", "Courier New", "MS Gothic", monospace !important;
-  font-weight: 500 !important;
+  font-weight: 500;
 }
 
 /* ========================================
-   引用・警告ボックス
+   Blockquotes & info boxes
    ======================================== */
 blockquote {
   border-left: 5px solid var(--color-secondary);
   background: var(--color-background-alt);
-  padding: 15px 20px;
-  margin: 15px 0;
+  padding: 14px 18px;
+  margin: 14px 0;
   font-style: italic;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* 警告ボックス（⚠️で始まる引用） */
-blockquote:has(strong:first-child:contains("⚠️")),
-blockquote:has(strong:first-child:contains("注意")),
-blockquote:has(strong:first-child:contains("WARNING")) {
-  border-left-color: var(--color-warning);
-  background: #fef3c7;
-  color: #92400e;
-}
-
-/* 成功ボックス（✅で始まる引用） */
-blockquote:has(strong:first-child:contains("✅")),
-blockquote:has(strong:first-child:contains("完了")) {
-  border-left-color: var(--color-success);
-  background: #d1fae5;
-  color: #065f46;
-}
-
-/* エラーボックス（❌で始まる引用） */
-blockquote:has(strong:first-child:contains("❌")),
-blockquote:has(strong:first-child:contains("エラー")) {
-  border-left-color: var(--color-danger);
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-/* ========================================
-   情報ボックス（カスタムクラス）
-   ======================================== */
-/* 使い方: > **💡 TIPS:** 内容 */
-.info-box {
-  background: #dbeafe;
-  border: 2px solid var(--color-secondary);
   border-radius: 6px;
-  padding: 15px 20px;
-  margin: 15px 0;
+}
+
+.info-box {
+  background: #eef2ff;
+  border: 2px solid var(--color-secondary);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
 }
 
 .warning-box {
-  background: #fef3c7;
+  background: #fff7ed;
   border: 2px solid var(--color-warning);
-  border-radius: 6px;
-  padding: 15px 20px;
-  margin: 15px 0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
 }
 
 .success-box {
-  background: #d1fae5;
+  background: #ecfdf5;
   border: 2px solid var(--color-success);
-  border-radius: 6px;
-  padding: 15px 20px;
-  margin: 15px 0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
 }
 
 /* ========================================
-   リンク
+   Links
    ======================================== */
 a {
   color: var(--color-secondary);
   text-decoration: underline;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  font-weight: 600;
+  transition: color .15s ease;
 }
-
-a:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
-}
+a:hover { color: var(--color-primary); }
 
 /* ========================================
-   ページ番号（視認性向上）
+   Pagination
    ======================================== */
 section::after {
   content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
   position: absolute;
-  bottom: 20px;
-  right: 35px;
-  font-size: 16px;
+  bottom: 18px;
+  right: 28px;
+  font-size: 14px;
   color: var(--color-text-light);
   background: rgba(255, 255, 255, 0.9);
   padding: 4px 10px;
@@ -415,130 +297,111 @@ section::after {
   border: 1px solid var(--color-border);
   font-weight: 500;
 }
-
-/* タイトルスライドではページ番号を非表示 */
-section.lead::after {
-  display: none;
-}
+section.lead::after { display: none; }
 
 /* ========================================
-   ヘッダー・フッター
+   Header / Footer helpers
    ======================================== */
 header {
   position: absolute;
-  top: 20px;
+  top: 18px;
   left: 60px;
   font-size: 14px;
   color: var(--color-text-light);
   font-weight: 500;
 }
-
 footer {
   position: absolute;
-  bottom: 20px;
+  bottom: 18px;
   left: 60px;
   font-size: 12px;
   color: var(--color-text-light);
 }
 
 /* ========================================
-   セクション区切り（章の開始）
+   Columns layout
    ======================================== */
-/* 使い方: ---の後に<!-- _class: chapter --> */
-section.chapter {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  color: white;
-  justify-content: center;
-  text-align: center;
-}
-
-section.chapter h1 {
-  color: white;
-  border-bottom: none;
-  font-size: 56px;
-  margin-bottom: 0;
-}
-
-section.chapter h2 {
-  color: #dbeafe;
-  font-size: 32px;
-  font-weight: normal;
-  margin-top: 20px;
-}
-
-/* ========================================
-   2カラムレイアウト
-   ======================================== */
-/* 使い方: <!-- _class: columns --> */
 section.columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 28px;
   align-items: start;
 }
-
-section.columns > * {
-  grid-column: auto;
-}
-
+section.columns > * { grid-column: auto; }
 section.columns h1,
-section.columns h2 {
-  grid-column: 1 / -1; /* 見出しは全幅 */
-}
+section.columns h2 { grid-column: 1 / -1; }
 
 /* ========================================
-   印刷・エクスポート最適化
+   Print / export
    ======================================== */
 @media print {
-  section {
-    page-break-inside: avoid;
-  }
-  
-  pre,
-  table {
-    page-break-inside: avoid;
-  }
+  section, pre, table { page-break-inside: avoid; }
 }
 
 /* ========================================
-   アクセシビリティ
+   Accessibility & motion
    ======================================== */
-/* フォーカス時の視認性向上 */
-a:focus,
-button:focus,
-input:focus {
+a:focus, button:focus, input:focus {
   outline: 3px solid var(--color-accent);
   outline-offset: 2px;
 }
 
-/* ハイコントラストモード対応 */
 @media (prefers-contrast: high) {
   :root {
-    --color-text: #000000;
-    --color-background: #ffffff;
+    --color-text: #000;
+    --color-background: #fff;
   }
-  
-  section {
-    border: 2px solid #000000;
+  section { border: 2px solid #000; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  section { animation: fadeIn .25s ease-in; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 }
 
-/* ========================================
-   アニメーション（控えめ）
-   ======================================== */
-@media (prefers-reduced-motion: no-preference) {
-  section {
-    animation: fadeIn 0.3s ease-in;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+/* === Left align text by default === */
+section { text-align: left; align-items: flex-start; }
+section :is(h1,h2,h3,h4,p,ul,ol,table,blockquote,pre,code){ text-align: left; }
+ul, ol { list-style-position: outside; margin-left: 1.4em; }
+p { margin: 8px 0; }
+/* Keep special slides centered */
+section.lead, section.chapter { text-align: center; align-items: center; }
+
+
+
+/* ===== Code enlargement & full display for PDF ===== */
+pre {
+  width: 100%;
+  font-size: 20px;           /* enlarge code text */
+  line-height: 1.7;
+  margin-left: 0;
+  margin-right: 0;
+  white-space: pre-wrap;     /* wrap long lines for PDF */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  overflow: visible;         /* show all content when exporting */
+}
+
+pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Optional per-slide stronger zoom: add 'class: code-zoom' in frontmatter for that slide */
+section.code-zoom pre { font-size: 22px; line-height: 1.75; }
+
+/* PDF export safety */
+@media print {
+  pre, pre code {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    overflow: visible !important;
   }
 }
+
